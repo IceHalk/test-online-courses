@@ -95,13 +95,13 @@ body {
 @media (max-width: 864px) {
   .tabs {
     display: grid;
-    grid-template-columns: repeat(3, 174px);
+    grid-template-columns: repeat(3, 176px);
     justify-items: center;
   }
 }
 @media (max-width: 545px) {
   .tabs {
-    grid-template-columns: repeat(2, 174px);
+    grid-template-columns: repeat(2, 176px);
   }
 }
 @media (max-width: 364px) {
