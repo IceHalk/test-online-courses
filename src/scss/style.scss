@@ -1,0 +1,323 @@
+@import "variables";
+@import "fonts";
+@import "typography";
+
+body {
+  font: 100% $font-primary;
+  background-color: $color-white;
+  margin: 0;
+}
+
+.background {
+  background-image: url(../../src/assets/images/background.png);
+  background-repeat: repeat-y;
+  background-size: 100%;
+  margin: 50px 0;
+}
+
+.main-wrapper {
+  max-width: 1230px;
+  margin: auto;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+
+  &__h6 {
+    margin: 0;
+
+    text-align: center;
+  }
+
+  &__h1 {
+    margin: 0;
+
+    text-align: center;
+  }
+}
+
+.navbar {
+  margin-top: 85px;
+
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+  gap: 20px;
+
+  justify-content: space-between;
+
+  @media (max-width: 1185px) {
+    justify-content: center;
+  }
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  @media (max-width: 864px) {
+    display: grid;
+    grid-template-columns: repeat(3, 174px);
+    justify-items: center;
+  }
+
+  @media (max-width: 545px) {
+    grid-template-columns: repeat(2, 174px);
+  }
+
+  @media (max-width: 364px) {
+    display: block;
+  }
+}
+
+.tab {
+  height: 46px;
+  padding: 10px 20px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  align-items: flex-start;
+
+  @include text(base-bold);
+  color: $color-gray-600;
+
+  border: none;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-gray-800;
+  }
+
+  &__badge {
+    margin-left: 4px;
+    width: 11px;
+
+    @include text(extrasmall-bold);
+  }
+
+  &--active {
+    color: $color-primary;
+
+    border: $color-primary solid 1px;
+    border-radius: 4px;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+.search {
+  position: relative;
+  display: inline-block;
+  width: 315px;
+  height: 44px;
+
+  &__input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 16px 11px;
+    padding-right: 46px;
+    background-color: $color-white;
+    border: $color-gray-400 solid 1px;
+
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    padding: 15px;
+    width: 46px;
+
+    border: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+  }
+
+  &__icon {
+    position: absolute;
+    display: block;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+
+    background-image: url("../../src/assets/icons/search-icon.svg");
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.grid {
+  margin-top: 60px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @media (max-width: 838px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: $color-white;
+
+  border: $color-gray-300 solid 1px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 600px) {
+    flex-direction: row;
+    min-height: 214px;
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+
+    @media (max-width: 600px) {
+      width: calc(100% / 6 * 2);
+      min-width: 0;
+    }
+  }
+
+  &__content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 20px;
+
+    @media (max-width: 600px) {
+      width: calc(100% / 6 * 4);
+    }
+
+    & > * {
+      margin: 0;
+    }
+  }
+
+  &__badge {
+    background-color: $color-primary;
+    color: $color-white;
+
+    padding: 1px 8px;
+
+    @include text(small-regular);
+
+    border-radius: 4px;
+
+    &--marketing {
+      background-color: $color-success;
+    }
+
+    &--management {
+      background-color: $color-info;
+    }
+
+    &--hr {
+      background-color: $color-warning;
+    }
+
+    &--design {
+      background-color: $color-design;
+    }
+
+    &--dev {
+      background-color: $color-dev;
+    }
+  }
+
+  &__title {
+    @include text(lead-bold);
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__divider {
+    margin: 0 8px;
+    color: $color-gray-700;
+  }
+
+  &__price {
+    @include text(large-bold);
+    color: $color-danger;
+  }
+
+  &__speaker {
+    @include text(large-regular);
+    color: $color-gray-700;
+  }
+}
+
+.load-more {
+  margin-top: 81px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  @include text(base-bold);
+
+  height: 26px;
+
+  align-items: center;
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+    gap: 16px;
+
+    border: none;
+    background-color: transparent;
+    color: $color-gray-800;
+  }
+
+  &__text {
+    @include text(base-bold);
+  }
+}

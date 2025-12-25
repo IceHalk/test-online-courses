@@ -1,0 +1,97 @@
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: 1.6;
+  color: $color-gray-900;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  font-weight: $font-weight-black;
+  line-height: 1.3;
+}
+
+h6 {
+  font-size: $font-size-h6;
+  font-weight: $font-weight-bold;
+  line-height: 1.3;
+}
+
+$typography: (
+  lead-bold: (
+    size: 20px,
+    weight: $font-weight-bold,
+    line-height: 1.5,
+  ),
+  large-regular: (
+    size: 18px,
+    weight: $font-weight-regular,
+    line-height: 1.5,
+  ),
+  large-bold: (
+    size: 18px,
+    weight: $font-weight-bold,
+    line-height: 1.5,
+  ),
+  base-bold: (
+    size: 16px,
+    weight: $font-weight-bold,
+    line-height: 1.6,
+  ),
+  small-regular: (
+    size: 14px,
+    weight: $font-weight-regular,
+    line-height: 1.5,
+  ),
+  extrasmall-bold: (
+    size: 10px,
+    weight: $font-weight-bold,
+    line-height: 1.5,
+  ),
+);
+
+@mixin text($type) {
+  $style: map-get($typography, $type);
+
+  @if $style {
+    font-size: map-get($style, size);
+    font-weight: map-get($style, weight);
+    line-height: map-get($style, line-height);
+  } @else {
+    @warn "Типографический стиль `#{$type}` не найден!";
+  }
+}
+
+// .text {
+//   &--lead-bold {
+//     font-size: 20px;
+//     font-weight: $font-weight-bold;
+//     line-height: 1.5;
+//   }
+//   &--large-regular {
+//     font-size: 18px;
+//     font-weight: $font-weight-regular;
+//     line-height: 1.5;
+//   }
+//   &--large-bold {
+//     font-size: 18px;
+//     font-weight: $font-weight-bold;
+//     line-height: 1.5;
+//   }
+//   &--base-bold {
+//     font-size: 16px;
+//     font-weight: $font-weight-bold;
+//     line-height: 1.6;
+//   }
+//   &--small-regular {
+//     font-size: 14px;
+//     font-weight: $font-weight-regular;
+//     line-height: 1.5;
+//   }
+//   &--extrasmall-bold {
+//     font-size: 10px;
+//     font-weight: $font-weight-bold;
+//     line-height: 1.5;
+//   }
+// }
