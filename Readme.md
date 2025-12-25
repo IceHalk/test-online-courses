@@ -2,7 +2,7 @@
 
 ## Описание
 
-Это тестовое задание на **Vanilla JavaScript и HTML**
+Это тестовое задание на **Vanilla JavaScript, HTML и SCSS**
 
 ## Как использовать
 
